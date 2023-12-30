@@ -49,15 +49,9 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-// function getAverage(value1, value2) {
-//   const sum = BigInt(value1) + BigInt(value2);
-//   const halfSum = sum / BigInt(2);
-//   let answer = 0;
-//   if (halfSum <= Number.MAX_SAFE_INTEGER) {
-//     answer = Number(halfSum);
-//   }
-//   return answer;
-// }
+function getAverage(/* value1, value2 */) {
+  throw new Error('Not implemented');
+}
 
 /**
  * Returns a distance between two points by cartesian coordinates.
@@ -613,7 +607,7 @@ function getCountOfOddNumbers(/* number */) {
 module.exports = {
   getRectangleArea,
   getCircleCircumference,
-  // getAverage,
+  getAverage,
   getDistanceBetweenPoints,
   getLinearEquationRoot,
   getAngleBetweenVectors,
