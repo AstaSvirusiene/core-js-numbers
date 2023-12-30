@@ -50,6 +50,10 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(/* value1, value2 */) {
+  // let answer = 0;
+  // if (value1 + value2 > 0) {
+  //   answer = (value1 + value2) / 2;
+  // }
   throw new Error('Not implemented');
 }
 
@@ -264,8 +268,14 @@ function getFibonacciNumber(/* index */) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  let sum = 0;
+  let m = n;
+  while (m) {
+    sum += m;
+    m -= 1;
+  }
+  return sum;
 }
 
 /**
