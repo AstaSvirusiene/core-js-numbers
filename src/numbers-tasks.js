@@ -49,12 +49,19 @@ function getCircleCircumference(radius) {
  *  10, 0  => 5
  *  -3, 3  => 0
  */
-function getAverage(/* value1, value2 */) {
-  // let answer = 0;
-  // if (value1 + value2 > 0) {
-  //   answer = (value1 + value2) / 2;
-  // }
-  throw new Error('Not implemented');
+function getAverage(value1, value2) {
+  let num = 0;
+  if (value1 && value2) {
+    num = Math.floor(value1 / 2) + Math.floor(value2 / 2);
+  }
+  if (value1 <= 0) {
+    num = Math.ceil(value1 / 2) + Math.floor(value2 / 2);
+  }
+  if (value2 <= 0) {
+    num = Math.floor(value1 / 2) + Math.ceil(value2 / 2);
+  }
+  const float = ((value1 % 2) + (value2 % 2)) / 2;
+  return num + float;
 }
 
 /**
@@ -111,8 +118,10 @@ function getLinearEquationRoot(a, b) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const dot = x1 * x2 + y1 * y2;
+  const cosTheta = dot / (Math.hypot(x1, y1) * Math.hypot(x2, y2));
+  return Math.acos(cosTheta);
 }
 
 /**
@@ -160,8 +169,9 @@ function parseNumberFromString(value) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  const pow = a * a + b * b + c * c;
+  return Math.sqrt(pow);
 }
 
 /**
@@ -181,8 +191,16 @@ function getParallelepipedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  let answer = 0;
+  if (pow === 0) {
+    answer = num;
+  } else {
+    const power = 10 ** pow;
+    const number = Math.round(num / power);
+    answer = number * power;
+  }
+  return answer;
 }
 
 /**
