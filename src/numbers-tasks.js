@@ -282,8 +282,14 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  let answer = 0;
+  if (index <= 1) {
+    answer = index;
+  } else {
+    answer = getFibonacciNumber(index - 1) + getFibonacciNumber(index - 2);
+  }
+  return answer;
 }
 
 /**
@@ -579,8 +585,18 @@ function getIntegerPartNumber(number) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(x1, x2, x3) {
+  let answer = 0;
+  if (Math.floor(x1) === x1 || Math.floor(x2) === x2 || Math.floor(x3) === x3) {
+    answer = x1 + x2 + x3;
+  } else {
+    const length1 = x1.toString().split('.')[1].length || 0;
+    const length2 = x2.toString().split('.')[1].length || 0;
+    const length3 = x3.toString().split('.')[1].length || 0;
+    const length = Math.max(length1, length2, length3);
+    answer = Math.round((x1 + x2 + x3) * 10 * length) / (10 * length);
+  }
+  return answer;
 }
 
 /**
@@ -611,8 +627,8 @@ function getMaxNumber(firstNumber, secondNumber) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+function getRandomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /**
@@ -625,8 +641,8 @@ function getRandomInteger(/* min, max */) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  return Math.hypot(a, b);
 }
 
 /**
@@ -642,8 +658,17 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  let answer = 0;
+  const absNumber = Math.abs(number);
+
+  for (let i = absNumber; i >= 1; i -= 1) {
+    if (i % 2 !== 0) {
+      answer += 1;
+    }
+  }
+
+  return answer;
 }
 
 module.exports = {
